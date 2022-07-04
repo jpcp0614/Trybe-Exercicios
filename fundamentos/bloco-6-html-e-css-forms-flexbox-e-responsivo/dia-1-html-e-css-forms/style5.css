@@ -1,0 +1,10 @@
+body {
+  text-align: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: start;
+  border: 3px solid red;
+  width: 500px;
+}

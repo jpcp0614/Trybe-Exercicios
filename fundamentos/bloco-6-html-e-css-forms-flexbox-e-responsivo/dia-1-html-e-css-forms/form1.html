@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+</head>
+<body>
+  <header>
+    <h1>FORMULÁRIO</h1>
+  </header>
+
+  <div>
+    <form action="" method="GET">
+      <label for="input-text">Digite seu nome</label>
+        <div>
+          <input type="text" name="text" placeholder="Digite aqui..." required id="input-text"> <!--required é campo obrigatorio-->
+        </div>
+
+    <div>
+      <label for="input-text-area">Comentários</label>
+        <div>
+          <textarea name="" id="input-text-area"></textarea>
+        </div>
+    </div>
+
+    <div>
+      <input type="checkbox" value="fut" name="sport" id="sport-1">
+      <label for="sport-1">Futebol</label>
+      
+      <input type="checkbox" value="vol" name="sport" id="sport-2">Volei
+      <input type="checkbox" value="nat" name="sport" id="sport-3">Natação
+    </div>
+
+    <div>
+      <label for="hub-1">
+        <input type="radio" value="mg" name="hub" id="hub-1">Minas Gerais
+      </label>
+      
+      <input type="radio" value="rj" name="hub" id="hub-1">Rio de Janeiro
+      <input type="radio" value="sp" name="hub" id="hub-1">São Paulo
+    </div>
+
+    <div>
+      <select name="state" id="dropdown-state">
+        <option value="sp">São Paulo</option>
+        <option value="rj">Rio de Janeiro</option>
+        <option value="am">Amazonas</option>
+        <option value="rs">Rio Grande do Sul</option>
+      </select>
+    </div>
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
