@@ -1,0 +1,77 @@
+➜  dia-1-nodejs-um-motor-javascript git:(exercicios/bloco22.1) mkdir package-nodejs                  
+➜  dia-1-nodejs-um-motor-javascript git:(exercicios/bloco22.1) cd package-nodejs                  
+➜  package-nodejs git:(exercicios/bloco22.1) npm init   
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (package-nodejs) 
+version: (1.0.0) 
+description: Meu primeiro pacote NodeJS
+entry point: (index.js) 
+test command: 
+git repository: 
+keywords: 
+author: João Paulo
+license: (ISC) 
+About to write to /home/jp/Documents/trybe-exercises/desenvolvimento_back-end/bloco-22-introducao-ao-desenvolvimento-web-com-nodejs/dia-1-nodejs-um-motor-javascript/package-nodejs/package.json:
+
+{
+  "name": "package-nodejs",
+  "version": "1.0.0",
+  "description": "Meu primeiro pacote NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "João Paulo",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes) 
+➜  package-nodejs git:(exercicios/bloco22.1) ✗ ls
+package.json
+➜  package-nodejs git:(exercicios/bloco22.1) ✗ rm package.json                                             
+➜  package-nodejs git:(exercicios/bloco22.1) npm init -y         
+Wrote to /home/jp/Documents/trybe-exercises/desenvolvimento_back-end/bloco-22-introducao-ao-desenvolvimento-web-com-nodejs/dia-1-nodejs-um-motor-javascript/package-nodejs/package.json:
+
+{
+  "name": "package-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
+
+➜  package-nodejs git:(exercicios/bloco22.1) ✗ npm install dog-names         
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN package-nodejs@1.0.0 No description
+npm WARN package-nodejs@1.0.0 No repository field.
+
++ dog-names@2.0.0
+added 54 packages from 29 contributors and audited 54 packages in 6.018s
+
+3 packages are looking for funding
+  run `npm fund` for details
+
+found 2 vulnerabilities (1 moderate, 1 high)
+  run `npm audit fix` to fix them, or `npm audit` for details
+➜  package-nodejs git:(exercicios/bloco22.1) ✗ ls
+node_modules  package.json  package-lock.json  terminal.txt
+➜  package-nodejs git:(exercicios/bloco22.1) ✗ code .           
+➜  package-nodejs git:(exercicios/bloco22.1) ✗ 
+
+
