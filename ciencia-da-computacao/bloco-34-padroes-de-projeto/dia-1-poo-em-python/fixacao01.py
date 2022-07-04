@@ -39,7 +39,41 @@ class Geladeira():
         '''
 
 
-geladeira = Geladeira('Brastemp', 'Branca', 127, 5000, '450L')
-print(geladeira)
+class Pessoa():
+    def __init__(self, nome, saldo_da_conta):
+        self.nome = nome
+        self.saldo_da_conta = saldo_da_conta
+        self.geladeira = None
 
-geladeira.ligar_geladeira()
+    def comprar_geladeira(self, geladeira: Geladeira):
+        if self.saldo_da_conta >= geladeira.preco:
+            self.saldo_da_conta -= geladeira.preco
+            self.geladeira = geladeira
+            print('Geladeira comprada com sucesso!')
+        else:
+            print('Saldo insuficiente')
+
+    def ligar_geladeira(self):
+        if self.geladeira:
+            self.geladeira.ligar_geladeira()
+        else:
+            print('Não há geladeira para ligar')
+
+    def __str__(self):
+        return f'''
+        - Nome: {self.nome}
+        - Saldo da conta: {self.saldo_da_conta}
+        - Geladeira: {self.geladeira}
+        '''
+
+
+geladeira = Geladeira('Brastemp', 'Branca', 127, 5000, '450L')
+# print(geladeira)
+
+pedro = Pessoa('Pedro', 10000)
+pedro.comprar_geladeira(geladeira)
+
+# print(pedro)
+
+pedro.ligar_geladeira()
+print(pedro)
