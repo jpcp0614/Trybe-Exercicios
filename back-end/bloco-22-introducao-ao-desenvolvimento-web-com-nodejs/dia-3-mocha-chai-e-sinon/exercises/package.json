@@ -1,0 +1,17 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "description": "Exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "keywords": [],
+  "author": "João Paulo Pereira",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.0",
+    "sinon": "^13.0.1"
+  }
+}

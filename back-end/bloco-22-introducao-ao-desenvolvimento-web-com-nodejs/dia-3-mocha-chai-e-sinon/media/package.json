@@ -1,0 +1,19 @@
+{
+  "name": "media",
+  "version": "1.0.0",
+  "description": "Teste average",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^4.3.6"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.0"
+  },
+  "scripts": {
+    "test": "mocha tests",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "João Paulo Pereira",
+  "license": "ISC"
+}

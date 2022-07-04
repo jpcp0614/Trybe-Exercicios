@@ -1,0 +1,12 @@
+{
+  "name": "package-teste",
+  "version": "1.0.0",
+  "description": "Testando script",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "João Paulo Pereira",
+  "license": "ISC"
+}
