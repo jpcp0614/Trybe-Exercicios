@@ -1,0 +1,4 @@
+SELECT 'João Paulo' AS name;
+SELECT 'João Paulo' AS name, 'Pereira' AS lastname, 'Juiz de Fora' AS hometown, '33 anos' AS age;
+SELECT 13 * 8 AS results;
+SELECT now() AS 'Data Atual';

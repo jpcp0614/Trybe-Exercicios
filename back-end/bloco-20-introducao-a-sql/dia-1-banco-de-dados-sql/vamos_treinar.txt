@@ -1,0 +1,6 @@
+Vamos treinar
+
+1) mysql -u root -p  ->   digitar a senha
+2) USE myslq_table;    ->    SHOW TABLE;
+3) CREATE DABASE my_db_jp;
+4) SHOW TABLES;

@@ -1,0 +1,10 @@
+Exercćios de fixação
+
+1ª Parte:
+1) Primary key
+2) Foreign key
+3) Not null
+
+2ª Parte:
+1) Primary key
+2) Foreign key
