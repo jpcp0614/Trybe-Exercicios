@@ -1,0 +1,30 @@
+Então....resumidamente:
+Dockerfile é o arquivo de receita/instruções pra criar uma imagem
+FROM indica qual imagem base será utilizada para criar a nossa imagem -> node:1-alpine
+RUN executa algo durante o processo de montagem da imagem (ou seja, executado durante o build) -> npm install
+CMD executa algo apenas na criação do container e não no build -> npm start (são dois argumentos....o primeiro é o executável 'npm' e o segundo o que será executado 'start')
+EXPOSE é uma instrução que vai dizer qual porta está liberada ao criar o container
+COPY copia os arquivos de um lugar da máquina local para a pasta do container
+ADD também copia, mas tem a capacidade de lidar com arquivos compactados (pode descompactar) - só utiliza ADD se tiver arquivo compactado
+WORKDIR é sua área de trabalho (mas onde? é literalmente uma pasta dentro do container onde os comandos serão executados)
+aí, no terminal, vc precisa montar a imagem: docker build -t node:1-alpine .
+docker build -> é o comando em si: constrói a imagem a partir do Dockerfile (onde tem as instruções)
+-t -> é um parâmetro que informa que a imagem pertence ao meu usuário (a vc mesmo)
+node:1-alpine -> é o nome da imagem e a tag ( 1 - versão, alpine - sistema) atribuída à ela
+. -> significa o diretório atual (vc faz o build dentro da pasta do Dockerfile, por exemplo)
+
+O RUN vc vai usar quando quiser fazer npm install, npx hello sei lá o que,  fazer um apt-get update
+Ou seja, quando vc faz aquele comando docker build, além de baixar a imagem base para criar a sua imagem, ele vai executar os comandos do RUN para atualizar os repositórios do node (por exemplo - apt-get update), vai fazer o npm install...e o que tiver mais
+Vc pode ter vários RUN's
+O CMD realmente é parecido com o RUN:
+O RUN, como eu havia dito, é executado durante o processo de montagem da imagem (o que eu preciso RODAR para montar minha imagem). Já o CMD é executado quando criamos o container (docker container run -it imagem). A partir da imagem que eu montei, farei um container com ela.
+Podemos ter mais de um CMD tb no Dockerfile
+Como vc pode ter mais de um, acaba gerando um "problema":
+Ex.:
+CMD touch arquivo1.txt
+CMD touch arquivo2.txt
+Quando vc criar o container, só vai ser executado, no final das contas, o CMD arquivo2, pq CMD sobescreve a ele mesmo...Ele vai rodar o primeiro...gera o arquivo1....mas aí tem outro CMD. Ele substitui o arquivo1 pelo 2
+Aí, para não ocorrer isso (não é impossível, mas é mais difícil), pq quero criar os dois arquivos, usamos o ENTRYPOINT
+Ficando então:
+CMD touch arquivo1.txt
+ENTRYPOINT touch arquivo2.txt
