@@ -1,0 +1,33 @@
+i) Fluxo normal
+
+  a) Ao clicar no botão entrar, por exemplo, é feito um dispatch (um pedido de uma action) - a gente dispara uma ação
+    btn-entrar -> dispatch -> action
+  
+  b) Geralmente, a action é um objeto, tem um type e pode ter outras informações como user, password
+      { type: LOGIN, user: 'joao', password: 12345 }
+
+  c) Essa action é 'ouvida' pelo reducer, que contem um estado inicial
+      { user: '', password: '', logged: false }
+     Quando o reducer 'ouve' a ação do type LOGIN, ele troca
+      { user: 'joao', password: 12345, logged: true }
+     Nesse processo, não acontece nenhuma requisição, nenhuma validação de fato dos dados
+     O reducer atualiza e envia isso para a store
+     reducer -> store
+
+  d) A store recebe a informação { user: 'joao', password: 12345, logged: true }
+
+  e) a store notifica a aplicação....voltamos ao inicio
+
+ii) Action Assíncrona
+
+  a) o clicar no botão entrar, por exemplo, é feito um dispatch (um pedido de uma action) - a gente dispara uma ação
+    btn-entrar -> dispatch -> action
+
+  b) Agora a action é um objeto, mas o Redux não sabe lidar com Funções
+     Não dá para disparar função!
+
+  c) Nesse momento que entra o middleware (interceptador das actions)
+     Ele vai 'ouvir' as ações para saber se é uma função (que faz a requisição de uma API) ou um objeto
+     Se a ação for função, o middleware fará uma ação específica (redux-thunk)
+     Se for objeto, a action será ouvida diretamente pelo reducer
+  
