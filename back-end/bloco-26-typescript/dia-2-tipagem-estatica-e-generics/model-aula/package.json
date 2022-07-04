@@ -1,0 +1,19 @@
+{
+  "name": "model-aula",
+  "version": "1.0.0",
+  "description": "Exemplo Aula",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "João Paulo",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.1",
+    "@types/node": "^17.0.23"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
