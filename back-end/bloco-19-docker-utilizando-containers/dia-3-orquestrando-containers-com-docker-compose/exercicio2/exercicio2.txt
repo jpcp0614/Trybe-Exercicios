@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  ghost:
+    image: ghost:1-alpine
+    ports:
+      - 2368:2368
+
+➜  exercicio2 git:(exercicios/bloco19.3) ✗ docker-compose up -d 

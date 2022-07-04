@@ -1,0 +1,131 @@
+O que é o Docker?
+- Docker é uma plataforma que permite "criar, enviar e executar qualquer aplicativo, em qualquer lugar".
+- Ela tornou-se muito popular em pouco tempo e hoje é considerada um padrão na maneira de resolver um dos
+aspectos mais caros do software: a implementação (na minha máquina roda e na sua não)
+- Em palavras mais simples, o Docker é uma ferramenta que permite que desenvolvedores, administradores de sistemas, etc.
+implementem facilmente seus aplicativos em uma sandbox (chamada container) para serem executados em SO
+host, ou seja, no Linux, Windows ou Mac.
+
+
+Qual o benefício do Docker?
+- O principal benefício do Docker é que ele permite que os usuários empacotem um aplicativo com todas as suas dependências
+em uma unidade padronizada para desenvolvimento de software. Ao contrário das máquinas virtuais, os containers não têm a
+alta sobrecarga e, portanto, permitem um uso mais eficiente do sistema e dos recursos subjacentes.
+- O significado da palavra remete aos containers que são carregados nos portos e ao fato do Docker chamar de containers os
+espaços reservados na memória que são executados independentemente e isoladamente de outros containers ou do próprio host.   
+- Assim, o Docker é uma tecnologia de virtualização de ambientes parecida com uma máquina virtual.
+- É uma tecnologia open-source escrita na linguagem Go (criada pela Google).
+
+
+Então qual a diferença entre Container e Máquina Virtual?
+- A diferença é que um container no docker compartilha o Kernel com o SO do host.
+- Isso faz com que o desempenho aumente e o consumo de memória do container diminua.
+- o Docker pode ser visto como um serviço de administração de containers, que são processos segregados a partir dos quais
+podemos configurar, inicializar e construir aplicações de forma isolada do sistema host e dos demais containers.
+- Para poder ser executado, um container possui associado a ele um sistema de arquivos completo e isolado que contêm
+as dependências e bibliotecas necessárias.
+- Este sistema de arquivos read-only são conhecidos como Imagens; e, a partir das imagens é que os containers são criados.
+
+
+Para que serve o Docker ?
+- O objetivo do Docker é criar, testar e implementar aplicações em um ambiente separado da máquina original,
+chamado de container, onde o desenvolvedor consegue empacotar sua aplicação de forma padrão com níveis de isolamento.
+
+
+Mas qual a vantagem do Docker?
+- Os containers são uma imagem em execução ao invés de serem um ambiente read-only;
+- A rapidez com a qual um produto de software pode ser disponibilizado;
+- A possibilidade de configurar diferentes ambientes de forma rápida;
+- A possibilidade de diminuir o número de incompatibilidades entre as aplicações disponíveis;
+- Os arquivos podem ser compartilhados entre o container e o host, inclusive utilizando a nuvem para o processo;
+- Criar e mudar a infraestrutura é muito mais simples com o container docker, pois as imagens do docker são construídas através de arquivos de definição
+- A possibilidade de transformar uma aplicação em imagem docker permite que ela seja alocada como container em ambientes diferentes
+
+
+
+Criando a Imagem a partir do Dockerfile
+
+- Um Dockerfile é um arquivo texto que descreve as etapas que o Docker precisa para preparar uma imagem,
+incluindo a instalação de pacotes, criação de diretórios e definição de variáveis de ambiente entre outras coisas.
+
+Exemplo: Você deseja criar uma imagem baseada na imagem do Debian onde vai instalar o nginx e vai exibir uma página html.
+
+1) O Nginx é um servidor HTTP.
+2) O Debian é uma Distribuição Linux.
+
+- Com o VS code aberto na pasta do projeto,
+cria-se um arquivo chamado Dockerfile (sem extensão) com o seguinte conteúdo:
+
+# define a imagem base
+FROM debian:latest
+
+# define o mantenedor da imagem
+LABEL maintainer="Macoratti"
+
+# Atualiza a imagem com os pacotes
+RUN apt-get update && apt-get upgrade -y
+
+# Instala o NGINX para testar
+RUN apt-get install nginx -y
+
+# Expõe a porta 80
+EXPOSE 80
+
+# Comando para iniciar o NGINX no Container
+CMD ["nginx", "-g", "daemon off;"]
+
+
+ --------
+Algumas explicações:
+FROM  - O primeiro argumento do Dockerfile deve ser sempre o FROM, seguido da imagem e versão que será utilizada.
+        Caso não seja informada a versão, o Docker vai procurar a mais atual do seu repositório oficial.
+
+LABEL: coloca um metadado para o container;
+
+RUN: executa os comandos dentro do container;
+
+EXPOSE: expõe a porta informada do container;
+
+CMD: Informa o comando que será executado após a criação do container, e também pode ser usado para definir os parâmetros que serão usados no comando ENTRYPOINT.
+
+Temos também os comandos :
+
+ENTRYPOINT - Define o aplicativo padrão usado toda vez que um contêiner é criado a partir da imagem.
+             Se usado em conjunto com o CMD, você pode remover o aplicativo e apenas definir os argumentos no CMD.
+
+ENV - Define/modifica as variáveis de ambiente dentro dos Containers criados a partir da imagem.
+
+COPY - Copia arquivos do seu ambiente para o container. Ex: COPY origem destino
+ --------
+
+
+Processando o arquivo Dockerfile
+- Para processar o arquivo Dockerfile usamos, no terminal, o comando:  docker build -t <imagem> .
+
+- Vamos supor que quero criar a imagem com o nome: macoratti/nginx:1.0
+
+- Para fazer isso usamos o comando  build e informamos o nome da imagem, a tag e um ponto(.)
+- O comando fica assim:
+
+docker build -t macoratti/nginx:1.0 .
+
+
+docker build        -> O comando
+-t                  -> Parâmetro usado para informar que a imagem pertence ao meu usuário
+macoratti/nginx:1.0 -> O nome da imagem e a tag atribuída à imagem
+.                   -> significa o diretório atual (pois dei o build* dentro da pasta do Dockerfile)
+
+*O comando docker build constrói uma imagem a partir de um Dockerfile e de um contexto.
+ O contexto do build é o conjunto de arquivos na localização especificada PATH ou URL.
+ O PATH é  o diretório no seu sistema de arquivos local e a URL é a localização do repositório GIT.
+
+ Para conferir digite o comando : docker images
+ Para testar a imagem vamos criar um contêiner: docker container run --name teste -p 80:80 macoratti/nginx:1.0
+ Agora basta abrir  um navegador e acessar http://localhost para visualizar a página padrão do nginx sendo exibida
+
+
+
+ Refs.:
+ 1) https://www.youtube.com/watch?v=PgqeQq4mVrU
+ 2) https://docs.docker.com/get-started/06_bind_mounts/
+ 3) http://www.macoratti.net/19/02/dock_imgfile1.htm#:~:text=O%20comando%20docker%20build%20constr%C3%B3i,a%20localiza%C3%A7%C3%A3o%20do%20reposit%C3%B3rio%20GIT.

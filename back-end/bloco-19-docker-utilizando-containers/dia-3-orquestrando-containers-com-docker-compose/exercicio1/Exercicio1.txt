@@ -1,0 +1,42 @@
+Exercício 1
+
+➜  exercicio1 git:(exercicios/bloco19.3) docker container run -d --name site-missao-trybe -p 4545:80 -v $(pwd):/usr/local/apache2/htdocs/ httpd:2.4
+b7793e6d7009495317c54941b20e38e291ac788923ee50dfd3022d6c0aa0560f
+➜  exercicio1 git:(exercicios/bloco19.3) docker ps                  CONTAINER ID   IMAGE       COMMAND              CREATED              STATUS              PORTS                                   NAMES
+b7793e6d7009   httpd:2.4   "httpd-foreground"   About a minute ago   Up About a minute   0.0.0.0:4545->80/tcp, :::4545->80/tcp   site-missao-trybe
+
+➜  exercicio1 git:(exercicios/bloco19.3) ✗ docker inspect b7793e6d7009
+
+➜  exercicio1 git:(exercicios/bloco19.3) ✗ docker container ls -aCONTAINER ID   IMAGE       COMMAND              CREATED         STATUS         PORTS                                   NAMES
+b7793e6d7009   httpd:2.4   "httpd-foreground"   3 minutes ago   Up 3 minutes   0.0.0.0:4545->80/tcp, :::4545->80/tcp   site-missao-trybe
+➜  exercicio1 git:(exercicios/bloco19.3) ✗ docker container rm -f b7793e6d7009    b7793e6d7009
+➜  exercicio1 git:(exercicios/bloco19.3) ✗ docker images                      
+REPOSITORY     TAG       IMAGE ID       CREATED       SIZE
+ubuntu/nginx   latest    2b4ebbe96785   5 days ago    136MB
+wordpress      latest    d4f1eb34e2f5   11 days ago   616MB
+busybox        latest    beae173ccac6   2 weeks ago   1.24MB
+nginx          latest    605c77e624dd   2 weeks ago   141MB
+mysql          5.7       c20987f18b13   4 weeks ago   448MB
+httpd          2.4       dabbfbe0c57b   4 weeks ago   144MB
+➜  exercicio1 git:(exercicios/bloco19.3) ✗ cd ..        
+➜  dia-3-orquestrando-containers-com-docker-compose git:(exercicios/bloco19.3) ✗ ls -la
+total 20
+drwxrwxr-x 3 jp jp 4096 jan 19 12:20 .
+drwxrwxr-x 5 jp jp 4096 jan 19 07:12 ..
+-rw-rw-r-- 1 jp jp  521 jan 19 08:19 docker-compose.yaml
+drwxrwxr-x 2 jp jp 4096 jan 19 12:21 exercicio1
+-rw-rw-r-- 1 jp jp  314 jan 19 06:51 primeiro-teste.html
+➜  dia-3-orquestrando-containers-com-docker-compose git:(exercicios/bloco19.3) ✗ docker rmi -f dabbfbe0c57b Untagged: httpd:2.4
+Untagged: httpd@sha256:0954cc1af252d824860b2c5dc0a10720af2b7a3d3435581ca788dff8480c7b32
+Deleted: sha256:dabbfbe0c57b6e5cd4bc089818d3f664acfad496dc741c9a501e72d15e803b34
+Deleted: sha256:0e16a5a61bcb4e6b2bb2d746c2d6789d6c0b66198208b831f74b52198d744189
+Deleted: sha256:f79670638074ff7fd293e753c11ea2ca0a2d92ab516d2f6b0bac3f4c6fed5d86
+Deleted: sha256:189d55cdd18e4501032bb700a511c2d69c82fd75f1b619b5218ea6870e71e4aa
+Deleted: sha256:cb038ed3e490a8c0f195cf135ac0d27dd8d3872598b1cb858c2666f2dae95a61
+➜  dia-3-orquestrando-containers-com-docker-compose git:(exercicios/bloco19.3) ✗ docker images             
+REPOSITORY     TAG       IMAGE ID       CREATED       SIZE
+ubuntu/nginx   latest    2b4ebbe96785   5 days ago    136MB
+wordpress      latest    d4f1eb34e2f5   11 days ago   616MB
+busybox        latest    beae173ccac6   2 weeks ago   1.24MB
+nginx          latest    605c77e624dd   2 weeks ago   141MB
+mysql          5.7       c20987f18b13   4 weeks ago   448MB
