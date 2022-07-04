@@ -1,0 +1,111 @@
+use sample;
+
+//TODO $expr
+
+db.budgets.insertMany([
+  { _id: 1, category: "food", budget: 400, spent: 450 },
+  { _id: 2, category: "drinks", budget: 100, spent: 150 },
+  { _id: 3, category: "clothes", budget: 100, spent: 50 },
+  { _id: 4, category: "misc", budget: 500, spent: 300 },
+  { _id: 5, category: "travel", budget: 200, spent: 650 }
+]);
+
+db.budgets.find();
+
+//* spent exceda o valor de budget
+db.budgets.find({
+  $expr: { $gt: ['$spent', '$budget'] }
+});
+
+//* Obs.: $ na string significa que é uma expressão (referencia o campo)
+
+
+//TODO $regex
+
+db.products.insertMany([
+  { _id: 100, sku: "abc123", description: "Single line description." },
+  { _id: 101, sku: "abc789", description: "First line\nSecond line" },
+  { _id: 102, sku: "xyz456", description: "Many spaces before     line" },
+  { _id: 103, sku: "xyz789", description: "Multiple\nline description" }
+]);
+
+db.products.find();
+
+//* campo sku que termina com 789
+db.products.find({
+  sku: { $regex: /789$/ }
+});
+
+//* ignorando letras maiúsculas e minúsculas
+db.products.find({
+  sku: { $regex: /^ABC/i }
+});
+
+
+//TODO $mod
+
+db.inventory.insertMany([
+  { _id: 1, item: "abc123", qty: 0 },
+  { _id: 2, item: "xyz123", qty: 5 },
+  { _id: 3, item: "ijk123", qty: 12 }
+]);
+
+db.inventory.find();
+
+//* qty módulo 4 seja 0
+db.inventory.find({ qty: { $mod: [4, 0] } });
+
+
+//TODO $all
+
+//* todos os campos budget devem ser iguais a 100
+db.budgets.find({
+  budget: { $all: [100] }
+});
+
+
+//TODO $elemMatch
+
+db.scores.insertMany([
+  { _id: 1, results: [82, 85, 88] },
+  { _id: 2, results: [75, 88, 89] },
+  { _id: 3, results: [95, 91, 93] },
+  { _id: 4, results: [78, 81, 84] }
+]);
+
+db.survey.insertMany([
+  {
+  _id: 1,
+  results: [
+    { product: "abc", score: 10 },
+    { product: "xyz", score: 5 }
+  ]
+},
+{
+  _id: 2,
+  results: [
+    { product: "abc", score: 8 },
+    { product: "xyz", score: 7 }
+  ]
+},
+{
+  _id: 3,
+  results: [
+    { product: "abc", score: 7 },
+    { product: "xyz", score: 8 }
+  ]
+}
+]);
+
+//* campo results deve ser maior que 88
+db.scores.find({
+  results: { $elemMatch: { $gt: 88 } }
+});
+
+db.survey.find({
+  results: { $elemMatch: { score: { $gt: 8 } } }
+});
+
+db.survey.find({
+  results: { $elemMatch: { product: 'xyz', score: { $gte: 7 } } }
+});

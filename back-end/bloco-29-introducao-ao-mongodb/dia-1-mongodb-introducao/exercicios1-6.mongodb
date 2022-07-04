@@ -1,0 +1,22 @@
+use example;
+
+//* find geral
+db.bios.find();
+
+//* Exercício 01 - procurar pelo _id = 8
+db.bios.find({ _id: 8 });
+
+//* Exercício 02 - procurar pelo _id = 8 com atributos _id e name, somente
+db.bios.find({ _id: 8 }, { _id: true, name: true });
+
+//* Exercício 03 - procurar pelo _id = 8 com atrbibutos name e birth, somente
+db.bios.find({ _id: 8 }, { _id: false, name: true, birth: true });
+
+//* Exercício 04 - procurar pelo name.first = John e utilizar o pretty()
+db.bios.find({ 'name.first': 'John' }).pretty();
+
+//* Exercício 05 - retornar os 3 primeiros
+db.bios.find().limit(3).pretty();
+
+//* Exercício 06 - retornar 2 pulando os 5 primeiros
+db.bios.find().skip(5).limit(2).pretty();

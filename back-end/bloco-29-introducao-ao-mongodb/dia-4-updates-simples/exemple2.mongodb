@@ -1,0 +1,48 @@
+use lanches;
+
+db.lanche.insertOne(
+  {
+    _id: 3,
+    nome: 'Big-Mac',
+    qtd: 38974,
+    menu: true,
+    combo: ['lanche', 'bebida', 'batata']
+  }
+);
+
+db.lanche.find();
+
+db.lanche.update(
+  { _id: 3 },
+  { $set: { qtd: 26789 } }
+);
+
+db.lanche.update(
+  { _id: 3 },
+  { $set: { 'combo.3': 'sorvete' } } // adicionar sorvete
+);
+
+db.lanche.update(
+  { _id: 3 },
+  { $set: { brinquedo: 'Hulk' } }
+);
+
+db.lanche.update(
+  { _id: 3 },
+  { $inc: { qtd: 10 } } // tb pode ser número negativo
+);
+
+db.lanche.update(
+  { _id: 3 },
+  { $currentDate: { lastUpdate: true } }
+);
+
+db.lanche.update(
+  { _id: 3 },
+  { $rename: { qtd: 'quantidade' } }
+);
+
+db.lanche.update(
+  { _id: 3 },
+  { $unset: { menu: '' } }
+);
