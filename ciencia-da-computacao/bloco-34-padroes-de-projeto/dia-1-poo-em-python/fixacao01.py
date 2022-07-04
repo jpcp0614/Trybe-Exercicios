@@ -6,40 +6,40 @@ Teste com prints para que possamos visualizar a pessoa e seus eletrônicos.
 '''
 
 
-class Eletrodomestico():
-    def __init__(self, nome, preco):
-        self.__nome = nome
-        self.__preco = preco
-        self.__ligado = False
+class Geladeira():
+    def __init__(self, modelo, cor, voltagem, preco, litragem):
+        self.modelo = modelo
+        self.cor = cor
+        self.voltagem = voltagem
+        self.preco = preco
+        self.litragem = litragem
+        self.ligada = False
 
-    def ligar(self):
-        self.__ligado = True
+    def ligar_geladeira(self):
+        if self.ligada:
+            print('Geladeira já está ligada')
+        else:
+            self.ligada = True
+            print('Geladeira ligada')
 
-    def desligar(self):
-        self.__ligado = False
-
-    def __str__(self):
-        return f'''
-        - Nome do eletrodoméstico: {self.nome}
-        - Preço do eletrodoméstico: {self.preco}
-        - Ligado: {self.desligar()}
-        '''
-
-
-class Pessoa():
-    def __init__(self, nome, saldo_na_conta, geladeira: Eletrodomestico):
-        self.nome = nome
-        self.saldo_na_conta = saldo_na_conta
-        self.eletro = []
-
-    def comprar_eletrodomestico(self, geladeira):
-        self.eletro.append(eletrodomestico)
-        self.saldo_na_conta -= eletrodomestico.preco
+    def desligar_geladeira(self):
+        if self.ligada:
+            self.ligada = False
+            print('Geladeira desligada')
+        else:
+            print('Geladeira já está desligada')
 
     def __str__(self):
         return f'''
-        - Nome: {self.nome}
-        - Saldo na conta: {self.saldo_na_conta}
-        - Eletrodomestico: {self.eletronicos}
-        - Ligar geladeira: {geladeira.ligar()}
+        - Modelo: {self.modelo}
+        - Cor: {self.cor}
+        - Voltagem: {self.voltagem}
+        - Preço: {self.preco}
+        - Litragem: {self.litragem}
         '''
+
+
+geladeira = Geladeira('Brastemp', 'Branca', 127, 5000, '450L')
+print(geladeira)
+
+geladeira.ligar_geladeira()
