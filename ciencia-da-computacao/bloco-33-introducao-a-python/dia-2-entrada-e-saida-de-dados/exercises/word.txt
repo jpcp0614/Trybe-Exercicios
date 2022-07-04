@@ -1,0 +1,10 @@
+home
+door
+window
+floor
+wall
+fireplace
+table
+chair
+sofa
+kitchen

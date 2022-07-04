@@ -1,0 +1,28 @@
+{
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "cSpell.words": [
+    "graduacao",
+    "Grayson",
+    "Howlett",
+    "J'onn",
+    "J'onzz",
+    "Ketchum",
+    "Kord",
+    "Manhunter",
+    "Murdock",
+    "Myster",
+    "Nightwing",
+    "Norrin",
+    "Odinson",
+    "Radd",
+    "Raynor",
+    "responsavel",
+    "virtualenv",
+    "wikia"
+  ],
+  "python.analysis.extraPaths": [
+    "./aula",
+    "./aula"
+  ]
+}
