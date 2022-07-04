@@ -1,0 +1,14 @@
+h1, p, ol {
+    margin: auto;
+    text-align: center;
+    lis-style: none;
+}
+
+li:hover {
+    background-color: #A4DDC2;
+
+}
+
+li:active {
+    font-family: Cochin;
+}

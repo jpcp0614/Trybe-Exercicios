@@ -1,0 +1,7 @@
+div:nth-of-type(n):hover {
+    border: 2px solid red;
+}
+
+div:nth-of-type(2n+1) {
+    color: align;
+}
