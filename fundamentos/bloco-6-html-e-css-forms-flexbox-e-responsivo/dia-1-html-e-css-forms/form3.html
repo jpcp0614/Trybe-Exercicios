@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+</head>
+<body>
+
+  <header>
+    <h1>Formulário</h1>
+  </header>
+  
+  <main>
+    <form action="" method="GET" enctype="multipart/form-data">
+      <!--Complete name-->
+      <div>
+        <label for="input-complete-name">Nome completo:
+          <input type="text" name="name" id="input-complete-name" placeholder="Digite seu nome" required autofocus>
+        </label>
+      </div>
+
+      <!--Email-->
+      <div>
+        <label for="input-email">e-mail:
+          <input type="email" name="email" id="input-email" placeholder="Digite seu email" required>
+        </label>
+      </div>
+
+      <!--State-->
+      <div>
+        <label for="input-state">Estado onde você mora:
+          <select name="state" id="input-state">
+            <option value="es">Espírito Santo</option>
+            <option value="mg">Minas Gerais</option>
+            <option value="rj" selected>Rio de Janeiro</option>
+            <option value="sp">São Paulo</option>
+          </select>
+        </label>
+      </div>
+
+      <!--Photo-->
+      <div>
+        <p>Selecione sua foto:</p>
+        <input type="file" name="photo" id="input-photo">
+      </div>
+
+      <!--Favorites foods-->
+      <div>
+        <label for="input-favorite-food-1">
+          <input type="radio" name="favorite-food" value="pizza" id="input-favorite-food-1">Pizza
+        </label>
+      </div>
+
+      <div>
+        <label for="input-favorite-food-2">
+          <input type="radio" name="favorite-food" value="lasanha" id="input-favorite-food-2">Lasanha
+        </label>
+      </div>
+
+      <div>
+        <label for="input-favorite-food-3">
+          <input type="radio" name="favorite-food" value="churrasco" id="input-favorite-food-3">Churrasco
+        </label>
+      </div>
+
+      <div>
+        <label for="input-favorite-food-4">
+          <input type="radio" name="favorite-food" value="bife-fritas" id="input-favorite-food-4">Bife com fritas
+        </label>
+      </div>
+
+      <!--About me-->
+      <div>
+        <p>Escreva algo sobre você:</p>
+        <textarea name="about-me" id="input-about-me" cols="30" rows="5"></textarea>
+      </div>
+
+      <!--Password-->
+      <div>
+        <p>Digite sua senha:</p>
+        <label for="input-password">
+          <input type="password" name="password" id="input-password" required>
+        </label>
+      </div>
+
+      <!--Promotion news-->
+      <div>
+        <label for="input-promotion-news">
+          <input type="checkbox" name="promotion-news" id="input-promotion-news">Deseja receber notícias de promoções incríveis?
+        </label>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+</body>
+</html>

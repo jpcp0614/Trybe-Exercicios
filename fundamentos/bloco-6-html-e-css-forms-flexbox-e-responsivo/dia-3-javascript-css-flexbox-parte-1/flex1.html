@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox</title>
+</head>
+<body>
+
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    h2 {
+      margin: 20px;
+    }
+
+    div {
+      border: 1px solid blue;
+      margin: 20px;
+      min-height: 70px;
+      width: 200px;
+    }
+
+    p {
+      background-color: red;
+      border: 2px solid black;
+      color: white;
+    }
+
+    .test-flexbox {
+      display: flex;
+    /*  flex-direction: column; */
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    flex-flow: row wrap;
+    }
+
+  </style>
+
+  <!-- Flexbox -->
+  <h2>Flexbox</h2>
+  <div class="test-flexbox">
+    <p>Tamires Nunes</p>
+    <p>Lucas Ferraz</p>
+    <p>Gabriel Oliva</p>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="style5.css">
+  <title>Currículo</title>
+</head>
+
+<body>
+  <header>
+    <h1>Formulário de currículo</h1>
+  </header>
+
+  <main>
+    <form method="GET" id="curriculo-form">
+      <div id="form">
+        <!-- Personal Data -->
+        <fieldset class="personal-data">
+
+          <!--Name-->
+          <div class="form-personal-data">
+            <label for="input-name">Nome: </label>
+            <input type="text" name="the-name" id="input-name" maxlength="40" required>
+          </div>
+
+          <!--Email-->
+          <div class="form-personal-data">
+            <label for="input-email">Email: </label>
+            <input type="email" name="email" id="input-email" maxlength="50" required>
+          </div>
+
+          <!--CPF-->
+          <div class="form-personal-data">
+            <label for="input-cpf">CPF: </label>
+            <input type="text" name="cpf" id="input-cpf" maxlength="11" required>
+          </div>
+
+          <!--Address-->
+          <div class="form-personal-data">
+            <label for="input-address">Endereço: </label>
+            <input type="text" name="address" id="input-address" maxlength="50" required>
+          </div>
+
+          <!--City-->
+          <div class="form-personal-data">
+            <label for="input-city">Cidade: </label>
+            <input type="text" name="city" id="input-city" maxlength="200" required>
+          </div>
+
+          <!--State-->
+          <div class="form-personal-data">
+            <label for="input-state">Estado: </label>
+            <select name="state" id="input-state" required>
+              <option disabled selected value>Selecione o estado</option>
+            </select>
+          </div>
+
+          <!--Home-->
+          <div class="form-personal-data">
+            <label for="input-house">Casa </label>
+            <input type="radio" name="home" value="house" id="input-house" required>
+            <label for="input-apartment">Apartamento </label>
+            <input type="radio" name="home" value="apartment" id="input-apartment" required>
+          </div>
+        </fieldset>
+
+        <!-- Work Data -->
+        <fieldset class="work-data">
+
+          <!--Abstract-->
+          <div class="form-work-data">
+            <label for="input-office">Resumo do Currículo: </label>
+            <textarea name="abstract" maxlength="1000" required></textarea>
+          </div>
+
+          <!--Office-->
+          <div class="form-personal-data">
+            <label for="input-office">Cargo: </label>
+            <input type="text" name="office" id="input-office" maxlength="40" required>
+          </div>
+
+          <!--Office description-->
+          <div class="form-personal-data">
+            <label for="input-office-description">Descrição do Cargo: </label>
+            <input type="text" name="office-description" id="input-office-description" maxlength="500" required>
+          </div>
+
+          <!--Date-->
+          <div class="form-personal-data">
+            <label for="input-date">Data de Início: </label>
+            <input type="text" name="date" id="input-date" required>
+          </div>
+
+        </fieldset>
+
+        <button type="submit" id="button-send">Enviar</button>
+        <button type="reset" id="button-clean">Limpar</button>
+      </div>
+    </form>
+  </main>
+  <script src="script5.js"></script>
+</body>
+</html>
