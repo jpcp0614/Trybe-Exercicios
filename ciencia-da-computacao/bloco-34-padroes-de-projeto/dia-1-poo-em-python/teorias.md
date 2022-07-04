@@ -77,3 +77,26 @@ print("Esta ligado?", liquidificador_vermelho.esta_ligado())
 liquidificador_vermelho.desligar()
 print("Esta ligado?", liquidificador_vermelho.esta_ligado())
 # Esta ligado? False
+
+
+## Composição
+Agora que temos um liquidificador funcionando, vamos associá-lo a uma pessoa que cozinha, dizendo assim que esta pessoa pode possuir um liquidificador
+
+- Lembre que uma pessoa não é da mesma classe que um liquidificador, ela somente é possuidora desse objeto. Neste caso, precisamos utilizar do conceito de Composição.
+- Composição é atribuir o objeto de uma classe a outra, gerando assim um relacionamento de pertencimento entre eles.
+
+class Pessoa:
+    def __init__(self, nome, saldo_na_conta):
+        self.nome = nome
+        self.saldo_na_conta = saldo_na_conta
+        self.liquidificador = None
+
+    def comprar_liquidificador(self, liquidificador: Liquidificador):
+        if liquidificador.preco <= self.saldo_na_conta:
+            self.saldo_na_conta -= liquidificador.preco
+            self.liquidificador = liquidificador
+
+Agora, a classe Pessoa tem o método específico para comprar seu liquidificador:
+
+pessoa_cozinheira = Pessoa("Jacquin", 1000)
+pessoa_cozinheira.comprar_liquidificador(liquidificador_vermelho)
