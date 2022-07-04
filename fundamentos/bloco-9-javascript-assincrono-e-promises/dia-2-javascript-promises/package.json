@@ -1,0 +1,16 @@
+{
+  "name": "dia-2-javascript-promises",
+  "version": "1.0.0",
+  "main": "promises4.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
