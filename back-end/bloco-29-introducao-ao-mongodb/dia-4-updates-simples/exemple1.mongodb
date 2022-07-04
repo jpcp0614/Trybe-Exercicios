@@ -1,0 +1,227 @@
+use test;
+
+
+//TODO INSERTS
+
+db.inventory.insertMany(
+  [
+    { "item": "journal", "qty": 25, "size": { "h": 14, "w": 21, "uom": "cm" }, "status": "A" },
+    { "item": "notebook", "qty": 50, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "A" },
+    { "item": "paper", "qty": 100, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "D" },
+    { "item": "planner", "qty": 75, "size": { "h": 22.85, "w": 30, "uom": "cm" }, "status": "D" },
+    { "item": "postcard", "qty": 45, "size": { "h": 10, "w": 15.25, "uom": "cm" }, "status": "A" }
+  ]
+);
+
+db.products.insertOne({
+  _id: 100,
+  sku: "abc123",
+  quantity: 250,
+  instock: true,
+  reorder: false,
+  details: { model: "14Q2", make: "xyz" },
+  tags: [ "apparel", "clothing" ],
+  ratings: [ { by: "ijk", rating: 4 } ]
+});
+
+db.products.insertOne(
+  { "_id": 1, "item": "ABC", "price": NumberDecimal("10.99"), "qty": 25 }
+);
+
+db.increment.insertOne({
+  _id: 1,
+  sku: "abc123",
+  quantity: 10,
+  metrics: {
+    orders: 2,
+    ratings: 3.5
+  }
+});
+
+db.collection.insertMany(
+  [
+    { _id: 1, campo: 25 },
+    { _id: 2, campo: 50 },
+    { _id: 3, campo: 100 }
+  ]
+);
+
+db.scores.insertOne(
+  { _id: 1, highScore: 800, lowScore: 200 }
+);
+
+db.tags.insertOne(
+  {
+    _id: 1,
+    desc: "crafts",
+    dateEntered: ISODate("2019-10-01T05:00:00Z"),
+    dateExpired: ISODate("2019-10-01T16:38:16Z")
+  }
+);
+
+db.customers.insertOne(
+  { _id: 1, status: "a", lastModified: ISODate("2013-10-02T01:11:18.965Z") }
+);
+
+db.fruits.insertOne(
+  { _id: 100, name: "Banana", quantity: 100, inStock: true }
+);
+
+db.inventory.find();
+db.products.find();
+db.increment.find();
+db.collection.find();
+db.scores.find();
+db.tags.find();
+db.customers.find();
+db.fruits.find();
+
+//TODO updateOne
+
+//* alterar o status do primeiro documento para P e a unidade para cm
+db.inventory.updateOne(
+  { item: 'paper' },
+  { $set: { 'size.uom': 'cm', status: 'P' } }
+);
+
+
+//TODO updateMany
+
+//* alterar todos os qty menores que 50
+db.inventory.updateMany(
+  { qty: { $lt: 50 } },
+  { $set: { 'size.uom': 'in', status: 'P' } }
+);
+
+
+//TODO $set
+
+//* alterar campos no primeiro nível
+db.products.update(
+  { _id: 100 },
+  { $set: {
+    quantity: 500,
+    details: { model: '14Q2', make: 'xyz' },
+    tags: ['coats', 'outerwater', 'clothing']
+    }
+  }
+);
+
+//* alterar os capos dentro de subdocumentos
+db.products.update(
+  { _id: 100 },
+  { $set: {
+    'details.make': 'zzz'
+    }
+  }
+);
+
+//* alterando valores em arrays
+db.products.update(
+  { _id: 100 },
+  { $set: {
+    'tags.1': 'rain gear', // posição 1 do array
+    'ratings.0.rating': 2 // posição 0 do array
+    }
+  }
+);
+
+
+//TODO $mul
+
+db.products.update(
+  { _id: 1 },
+  { $mul: {
+    price: NumberDecimal('1.25'),
+    qty: 2
+    }
+  }
+);
+
+
+//TODO $inc
+
+db.increment.update(
+  { sku: 'abc123' },
+  { $inc: {
+    quantity: -2,
+    'metrics.orders': 1
+    }
+  }
+);
+
+
+//TODO $min e $max
+
+//* utilizando o $max
+db.collection.updateMany(
+  {},
+  { $max: { campo: 75 } } // atualiza todos os valores para 75
+);
+
+//* utilizando o $min
+db.collection.updateMany(
+  {},
+  { $min: { campo:42 } } // atualiza todos os valores para 25
+);
+
+db.scores.update(
+  { _id: 1 },
+  { $min: { lowScore: 150 } }
+);
+
+//* não acontece nada pq 150 é menor que 250
+db.scores.update(
+  { _id: 1 },
+  { $min: { lowScore: 250 } }
+);
+
+db.scores.update(
+  { _id: 1 },
+  { $max: { highScore: 950 } }
+);
+
+//* não acontece nada pq 950 é maior que 870
+db.scores.update(
+  { _id: 1 },
+  { $max: { highScore: 870 } }
+);
+
+//* comparar datas
+db.tags.update(
+  { _id: 1 },
+  { 
+    $min: { dateExpired: new Date("2019-09-25") },
+    $max: { dateExpired: new Date("2019-10-02") }
+  }
+);
+
+
+//TODO $currentDate
+
+db.customers.update(
+  { _id: 1 },
+  { $currentDate: {
+    lastModified: true,
+    'cancellation.date': { $type: 'timestamp' }
+    }, $set: { 'cancellation.reason': 'user request',
+    status: 'D'
+    }
+  }
+);
+
+
+//TODO $rename
+
+db.fruits.update(
+  { _id: 100 },
+  { $rename: { 'name': 'productName' } }
+);
+
+
+//TODO $unset
+
+db.fruits.update(
+  { productName: 'Banana' },
+  { $unset: { quantity: '' } }
+);

@@ -1,0 +1,25 @@
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> 
+> use sample
+switched to db sample
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+> db
+sample
+> db.products.insertOne({ productName: "Caixa", price: 20 })
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("627958dd51bfb2f618bf282e")
+}
+> db.products.insertOne({ _id: 1, productName: "Caixa", price: 20 })
+{ "acknowledged" : true, "insertedId" : 1 }
+> db.sample.find()
+> db.products.find()
+{ "_id" : ObjectId("627958dd51bfb2f618bf282e"), "productName" : "Caixa", "price" : 20 }
+{ "_id" : 1, "productName" : "Caixa", "price" : 20 }
+>

@@ -1,0 +1,21 @@
+// mongoimport --db=Books --collection=books --file=books.json
+
+//* Só consegui resolver via terminal
+
+use Books;
+
+//* Exercício 07 - contar quantos documentos existem na coleção
+db.books.countDocuments({});
+
+//* Exercício 08 - contar quantos livros com status = 'PUBLISH'
+db.books.countDocuments(
+    { status: "PUBLISH" }
+)
+
+//* Exercício 09 - exibir os atributos title, isbn e pageCount dos 3 primeiros livros.
+//* NÃO retorne o atributo _id
+db.books.find({}, { _id: false, title: true, isbn: true, pageCount: true } ).pretty();
+
+//* Exercício 10 - pular os 5 documentos e exibir os
+//* atributos _id, title, authors e status = "MEAP", limitando-se a 10 documentos.
+db.books.find({ status: 'MEAP' }, { title: true, authors: true, status: true } ).skip(5).limit(10).pretty();

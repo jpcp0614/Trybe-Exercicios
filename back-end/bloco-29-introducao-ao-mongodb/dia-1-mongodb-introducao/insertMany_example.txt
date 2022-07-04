@@ -1,0 +1,30 @@
+show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+sample  0.000GB
+> use sample
+switched to db sample
+> db
+sample
+> db.products.find()
+{ "_id" : ObjectId("627958dd51bfb2f618bf282e"), "productName" : "Caixa", "price" : 20 }
+{ "_id" : 1, "productName" : "Caixa", "price" : 20 }
+> db.products.insertMany([])
+{ "acknowledged" : true, "insertedIds" : [ ] }
+> db.products.insertMany([{ productName: "Lapis", stock: 10, price: 20, status: "A"}, { productName: "Tesoura", price: 5, status: "B"}, { productName: "Borracha", price: 15, status: "A" } ])
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("627966b73e116bf4a8940244"),
+		ObjectId("627966b73e116bf4a8940245"),
+		ObjectId("627966b73e116bf4a8940246")
+	]
+}
+> db.products.find()
+{ "_id" : ObjectId("627958dd51bfb2f618bf282e"), "productName" : "Caixa", "price" : 20 }
+{ "_id" : 1, "productName" : "Caixa", "price" : 20 }
+{ "_id" : ObjectId("627966b73e116bf4a8940244"), "productName" : "Lapis", "stock" : 10, "price" : 20, "status" : "A" }
+{ "_id" : ObjectId("627966b73e116bf4a8940245"), "productName" : "Tesoura", "price" : 5, "status" : "B" }
+{ "_id" : ObjectId("627966b73e116bf4a8940246"), "productName" : "Borracha", "price" : 15, "status" : "A" }
+
