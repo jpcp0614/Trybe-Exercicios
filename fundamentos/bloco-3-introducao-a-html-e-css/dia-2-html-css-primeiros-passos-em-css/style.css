@@ -1,0 +1,30 @@
+h1 {
+    font-size: 65px;
+    color: orange;
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+ul {
+    background-color: rgb(40, 40, 117);
+    font-style: italic;
+    line-height: 50px;
+    text-align: center;
+
+}
+ li {
+     background-color: darkblue;
+ }
+
+.background {
+    background-color: aquamarine;
+}
+
+p {
+    font-weight: 600;
+    font-size: 3em;
+}
+
+body {
+    font-size: 16px;
+}
