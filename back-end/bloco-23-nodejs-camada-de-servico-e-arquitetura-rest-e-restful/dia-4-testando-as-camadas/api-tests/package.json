@@ -1,0 +1,25 @@
+{
+  "name": "api-tests",
+  "version": "1.0.0",
+  "description": "Api Tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./tests/**/*$NAME*.test.js --exit",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "João Paulo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.1",
+    "nodemon": "^2.0.15",
+    "sinon": "^13.0.1"
+  }
+}
