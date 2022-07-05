@@ -135,3 +135,7 @@ class Eletrodomestico:
 É quando um objeto pode conter diferentes declarações de um método, de acordo com os parâmetros de entrada.
 
 - em Python este recurso é liberado apenas indicando que os elementos são opcionais.
+
+
+## Polimorfismo com Interface
+Técnica que reduz significativamente o esforço para ampliar um projeto. A Interface é uma classe abstrata que define comportamentos para classes concretas
