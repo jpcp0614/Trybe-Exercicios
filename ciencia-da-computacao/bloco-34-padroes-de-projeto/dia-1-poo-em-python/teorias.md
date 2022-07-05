@@ -144,3 +144,16 @@ Técnica que reduz significativamente o esforço para ampliar um projeto. A Inte
 ## Code smells
 Conforme naturalmente desenvolvemos o nosso código, existem algumas práticas que a princípio podem parecer a melhor solução para determinado problema. Entretanto, causam o efeito contrário e por muitas vezes trazem eventuais novos problemas.
 Estas práticas acabaram ficando famosas na comunidade de programação por serem coisas que acontecem frequentemente. Assim, foram apelidados de code smells, ou seja, maus cheiros no código, indicando que algo está errado, embora possa não parecer de imediato.
+
+#### Long Method: métodos grandes geralmente significam mais de uma responsabilidade em um mesmo trecho de código. Por isso, como regra geral, métodos não devem ser muito longos;
+
+#### Large Class: classes grandes geralmente significam mais de uma responsabilidade. Por isso, como regra geral, classes não devem ser muito grandes;
+
+#### Duplicate Code: códigos duplicados geralmente significam falta de abstração, ou seja, lógica repetida que poderia estar centralizada em uma única entidade compartilhada. Assim sendo, uma aplicação não deve ter trechos de código duplicados;
+#### Dead Code: se um código não está mais sendo utilizado, por que ainda está lá?
+
+#### Speculative Generality: quem nunca tentou adivinhar o futuro e tornou uma implementação mais complicada do que precisava? Essa aqui é extremamente comum de fazermos sem perceber!
+
+
+## Data Clumps
+Ocorre quando um grupo de variáveis (como o endereço de entrega do exemplo que veremos abaixo) é passado junto como parâmetro em várias partes do programa. É indicativo de que esses grupos devam ser transformados em suas próprias classes
