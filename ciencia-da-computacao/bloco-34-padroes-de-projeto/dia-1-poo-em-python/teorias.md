@@ -130,3 +130,8 @@ class Eletrodomestico:
     def esta_ligado(self):
         return self.__ligado
 
+
+## Polimorfismo
+É quando um objeto pode conter diferentes declarações de um método, de acordo com os parâmetros de entrada.
+
+- em Python este recurso é liberado apenas indicando que os elementos são opcionais.
