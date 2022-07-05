@@ -139,3 +139,8 @@ class Eletrodomestico:
 
 ## Polimorfismo com Interface
 Técnica que reduz significativamente o esforço para ampliar um projeto. A Interface é uma classe abstrata que define comportamentos para classes concretas
+
+
+## Code smells
+Conforme naturalmente desenvolvemos o nosso código, existem algumas práticas que a princípio podem parecer a melhor solução para determinado problema. Entretanto, causam o efeito contrário e por muitas vezes trazem eventuais novos problemas.
+Estas práticas acabaram ficando famosas na comunidade de programação por serem coisas que acontecem frequentemente. Assim, foram apelidados de code smells, ou seja, maus cheiros no código, indicando que algo está errado, embora possa não parecer de imediato.
