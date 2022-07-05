@@ -157,3 +157,9 @@ Estas práticas acabaram ficando famosas na comunidade de programação por sere
 
 ## Data Clumps
 Ocorre quando um grupo de variáveis (como o endereço de entrega do exemplo que veremos abaixo) é passado junto como parâmetro em várias partes do programa. É indicativo de que esses grupos devam ser transformados em suas próprias classes
+
+
+## Middle Man
+Se uma classe somente delega uma ação para outra, por que deveria existir? Remova o intermediário!
+
+- Temos uma plataforma onde a pessoa jogadora (Player) possui jogos (PlayerGame) e participa de torneios (Tournaments). Nesta plataforma, temos um cliente que precisa consultar os torneios de poker de uma pessoa jogadora.
