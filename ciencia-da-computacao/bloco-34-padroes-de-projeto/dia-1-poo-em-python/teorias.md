@@ -100,3 +100,33 @@ Agora, a classe Pessoa tem o método específico para comprar seu liquidificador
 
 pessoa_cozinheira = Pessoa("Jacquin", 1000)
 pessoa_cozinheira.comprar_liquidificador(liquidificador_vermelho)
+
+
+## Herança
+Evitar repetição de código com o conceito de herança, criando assim uma classe Eletrodomésticos. Neste sentindo, as classes geladeira, batedeira, fogão, micro-ondas serão suas filhas, ou seja, a herdam.
+
+- Herança é especializar o comportamento de uma classe, ou seja, a classe herdeira é tudo que a classe ascendente é e talvez um pouco mais!
+
+class Eletrodomestico:
+    def __init__(self, cor, potencia, voltagem, preco):
+        self.preco = preco
+        self.__cor = cor
+        self.__potencia = potencia
+        self.__voltagem = voltagem
+        self.__ligado = False
+        self.__amperagem_atual_no_motor = 0
+
+    def ligar(self, velocidade):
+        self.__velocidade = velocidade
+        self.__amperagem_atual_no_motor = (
+            (self.__potencia / self.__voltagem) / self.__velocidade_maxima
+        ) * velocidade
+        self.__ligado = True
+
+    def desligar(self):
+        self.__ligado = False
+        self.__velocidade = 0
+
+    def esta_ligado(self):
+        return self.__ligado
+
