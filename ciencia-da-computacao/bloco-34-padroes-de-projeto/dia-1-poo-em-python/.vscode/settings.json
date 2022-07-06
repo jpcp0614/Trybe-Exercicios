@@ -10,9 +10,13 @@
     "Estatistica",
     "funcao",
     "functools",
+    "Geometrica",
     "grafico",
     "mila",
+    "perimetro",
     "preco",
-    "produtorio"
+    "produtorio",
+    "retangulo",
+    "Retangulo"
   ]
 }
