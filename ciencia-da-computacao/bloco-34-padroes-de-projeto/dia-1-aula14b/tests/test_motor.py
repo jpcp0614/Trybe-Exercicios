@@ -6,3 +6,4 @@ def test_create_motor():
 
     assert motor.running is False
     assert motor.side == MotorSide.CLOCKWISE
+    assert motor.voltagem == 360
