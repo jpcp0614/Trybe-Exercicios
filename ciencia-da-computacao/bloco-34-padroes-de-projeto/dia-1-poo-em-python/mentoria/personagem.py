@@ -5,3 +5,9 @@ class Personagem():
         self.__peso = peso
         self.__altura = altura
         self.__hp = hp
+
+    def get_hp(self):
+        return self.__hp
+
+    def set_hp(self, dano):
+        self.__hp -= dano
