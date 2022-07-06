@@ -1,9 +1,11 @@
 from enum import Enum
-from elevator_system.motor import Motor
+from elevator_system.motorized_equipment import MotorizedEquipment
 
 
-class Elevator():
-    def __init__(self, motor: Motor):
+class Elevator(MotorizedEquipment):
+    def __init__(self, motor):
+        super().__init__(motor)
+
         self.current_floor = 0
         self.door_is_open = False
         self._status = ElevatorStatus.STOPPED
@@ -24,10 +26,12 @@ class Elevator():
     def move_up(self, destination_floor):
         self._status = ElevatorStatus.GOING_UP
         self.current_floor = destination_floor
+        self.forward(3)
 
     def move_down(self, destination_floor):
         self._status = ElevatorStatus.GOING_DOWN
         self.current_floor = destination_floor
+        self.backward(3)
 
 
 class ElevatorStatus(Enum):
