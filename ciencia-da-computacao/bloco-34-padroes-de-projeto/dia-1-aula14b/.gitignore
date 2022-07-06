@@ -1,0 +1,7 @@
+.ambient_dia_1_aula
+.pytest_cache
+__pycache__
+elevator_system/__pycache__
+tests/__pycache__/
+elevator_system/__pycache__/
+elevator_system/displays/__pycache__/

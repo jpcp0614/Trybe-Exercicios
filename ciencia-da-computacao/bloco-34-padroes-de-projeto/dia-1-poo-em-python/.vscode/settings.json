@@ -1,0 +1,30 @@
+{
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "cSpell.words": [
+    "cmax",
+    "cmin",
+    "darth",
+    "eletrodomestico",
+    "eletronicos",
+    "Emps",
+    "Estatistica",
+    "funcao",
+    "functools",
+    "Geometrica",
+    "grafico",
+    "jedi",
+    "luke",
+    "mila",
+    "nivel",
+    "Padmé",
+    "perimetro",
+    "preco",
+    "produtorio",
+    "retangulo",
+    "Retangulo",
+    "sith",
+    "Sith",
+    "vader"
+  ]
+}
