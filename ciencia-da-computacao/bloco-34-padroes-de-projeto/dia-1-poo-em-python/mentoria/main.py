@@ -7,9 +7,9 @@ darth_vader = Sith('Darth Vader', 'Humano', 130, 200, 130)
 luke = Jedi('Luke', 'Humano', 80, 170, 100)
 
 print('Personagens:')
-print(f'{personagem1.nome}')
-print(f'{darth_vader.nome}')
-print(f'{luke.nome}\n')
+print(f'{personagem1.nome}, -> {personagem1.falar()}')
+print(f'{darth_vader.nome} -> {darth_vader.falar()}')
+print(f'{luke.nome} ->\n')
 
 
 print('Round 1:')
