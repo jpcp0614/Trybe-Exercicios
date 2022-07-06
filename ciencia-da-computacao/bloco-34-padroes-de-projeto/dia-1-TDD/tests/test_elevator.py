@@ -1,4 +1,4 @@
-from elevator_system.elevator import Elevator
+from elevator_system.elevator import Elevator, ElevatorStatus
 import pytest
 
 
@@ -10,4 +10,4 @@ def elevator():
 def test_create_elevator(elevator):
     assert elevator.current_floor == 0
     assert elevator.door_is_open is False
-    assert elevator.get_status() == 0
+    assert elevator.get_status() == ElevatorStatus.STOPPED
