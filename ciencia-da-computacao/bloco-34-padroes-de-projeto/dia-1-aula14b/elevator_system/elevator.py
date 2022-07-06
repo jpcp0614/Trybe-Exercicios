@@ -1,8 +1,9 @@
 from enum import Enum
+from elevator_system.motor import Motor
 
 
 class Elevator():
-    def __init__(self):
+    def __init__(self, motor: Motor):
         self.current_floor = 0
         self.door_is_open = False
         self._status = ElevatorStatus.STOPPED

@@ -1,8 +1,10 @@
 from elevator_system.elevator import Elevator, ElevatorStatus
+from elevator_system.motor import Motor
 
 
 def test_create_elevator():
-    elevator = Elevator()
+    motor = Motor()
+    elevator = Elevator(motor)
 
     assert elevator.current_floor == 0
 
@@ -12,7 +14,8 @@ def test_create_elevator():
 
 
 def test_move_up():
-    elevator = Elevator()
+    motor = Motor()
+    elevator = Elevator(motor)
     destination_floor = 5
 
     elevator.move(destination_floor)
@@ -25,7 +28,8 @@ def test_move_up():
 
 
 def test_move_down():
-    elevator = Elevator()
+    motor = Motor()
+    elevator = Elevator(motor)
     elevator.current_floor = 10
     destination_floor = 5
 
@@ -39,7 +43,8 @@ def test_move_down():
 
 
 def test_move_same_floor():
-    elevator = Elevator()
+    motor = Motor()
+    elevator = Elevator(motor)
     elevator.current_floor = 5
     destination_floor = 5
 
