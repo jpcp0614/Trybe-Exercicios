@@ -8,8 +8,12 @@
     "elif",
     "FUNCS",
     "gerenciator",
+    "icms",
+    "jedi",
     "metodo",
     "opcao",
     "santander"
-  ]
+  ],
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true
 }
