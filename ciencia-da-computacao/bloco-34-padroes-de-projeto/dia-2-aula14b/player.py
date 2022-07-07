@@ -14,3 +14,10 @@ class AudioPlayer():
 class VideoPlayer():
     def play_mp4(self):
         print('Play MP4')
+
+
+MediaPlayer(AudioPlayer()).execute()  # 'Play audio'
+
+audio = AudioPlayer()
+meu_player = MediaPlayer(audio)
+meu_player.execute()
