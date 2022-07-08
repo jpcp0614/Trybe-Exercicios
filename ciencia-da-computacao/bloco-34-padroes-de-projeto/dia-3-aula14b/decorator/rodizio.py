@@ -1,3 +1,6 @@
+import random
+
+
 class SellerTeam:
     def __init__(self):
         # imagine que as pessoas vendedoras são lidas de um DB
@@ -17,8 +20,20 @@ class SellerTeam:
         self.__people = people
 
 
+class RandomSeller:
+    def __init__(self, seller_team):
+        self.seller_team = seller_team
+
+    def next_seller(self):
+        seller = random.choice(self.seller_team)
+        print(f'Vendedor: {seller}')
+        return seller
+
+
 if __name__ == '__main__':
     seller_team = SellerTeam()
-    print(seller_team.people)
-    seller_team.people.append('João')
-    print(seller_team.people)
+    list_sellers = seller_team.people
+    print(list_sellers)
+
+    random_seller = RandomSeller(list_sellers)
+    random_seller.next_seller()
