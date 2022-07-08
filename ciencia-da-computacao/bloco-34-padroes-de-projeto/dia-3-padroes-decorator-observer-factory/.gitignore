@@ -1,1 +1,4 @@
 .ambient_dia_3
+factory/__pycache__
+decorator/__pycache__
+observer/__pycache__
