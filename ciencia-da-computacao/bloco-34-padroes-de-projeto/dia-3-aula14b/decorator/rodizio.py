@@ -25,6 +25,15 @@ class RandomSeller:
     def __init__(self, seller_team):
         self.seller_team = seller_team
 
+    def owner_decoration(func):
+        def wrapper(*args, **kwargs):
+            print('-------- CARREGANDO LISTA --------')
+            returned_value = func(*args, **kwargs)
+            print('FECHOU\n\n')
+            return returned_value
+        return wrapper
+
+    @owner_decoration
     def next_seller(self):
         seller = random.choice(self.seller_team.people)
         print(f'Vendedor: {seller}')
