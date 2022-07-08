@@ -1,1 +1,4 @@
 .ambient_dia_3_aula
+factory/__pychace__
+factory/tests/__pycache__/
+factory/model/__pychache__/
