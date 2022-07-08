@@ -6,7 +6,19 @@ class SellerTeam:
           'Sérgio', 'Rafaela', 'Luana',
         ]
 
+    # get
+    @property
+    def people(self):
+        return self.__people
+
+    # set
+    @people.setter
+    def people(self, people):
+        self.__people = people
+
 
 if __name__ == '__main__':
     seller_team = SellerTeam()
+    print(seller_team.people)
+    seller_team.people.append('João')
     print(seller_team.people)
