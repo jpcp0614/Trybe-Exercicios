@@ -5,10 +5,10 @@ class User:
         self.password = password
 
     def login(self, email, password):
-        if email != 'zebirita@gmail.com':
+        if email != self.email:
             return False
 
-        if password != '123456':
+        if password != self.password:
             return False
 
         return True
