@@ -1,4 +1,5 @@
 import random
+from abc import ABC, abstractmethod
 
 
 class SellerTeam:
@@ -25,22 +26,39 @@ class RandomSeller:
         self.seller_team = seller_team
 
     def next_seller(self):
-        seller = random.choice(self.seller_team)
+        seller = random.choice(self.seller_team.people)
         print(f'Vendedor: {seller}')
         return seller
 
 
-class RandomSellerWithInterns:
-    def __init__(self, seller_team):
-        # lista de estagiários
-        list_interns = ['Gustavo', 'Jorge', 'Amanda']
-        self.seller_team = seller_team
-        self.seller_team += list_interns
+class Decorator(ABC):
+    def __init__(self, random_seller):
+        self.random_seller = random_seller
 
+    @abstractmethod
     def next_seller(self):
-        seller = random.choice(self.seller_team)
-        print(f'Vendedor: {seller}')
-        return seller
+        raise NotImplementedError
+
+
+class RandomSellerWithInterns(Decorator):
+    def next_seller(self):
+        list_interns = ['Gustavo', 'Jorge', 'Amanda']
+        self.random_seller.seller_team.people += list_interns
+
+        self.random_seller.next_seller()
+
+
+# class RandomSellerWithInterns:
+#     def __init__(self, seller_team):
+#         # lista de estagiários
+#         list_interns = ['Gustavo', 'Jorge', 'Amanda']
+#         self.seller_team = seller_team
+#         self.seller_team += list_interns
+
+#     def next_seller(self):
+#         seller = random.choice(self.seller_team)
+#         print(f'Vendedor: {seller}')
+#         return seller
 
 
 if __name__ == '__main__':
@@ -49,9 +67,9 @@ if __name__ == '__main__':
     print(list_sellers)
 
     print('Pessoas Vendedoras')
-    random_seller = RandomSeller(list_sellers)
+    random_seller = RandomSeller(seller_team)
     random_seller.next_seller()
 
     print('Pessoas Vendedoras + Estagiários')
-    random_seller_with_interns = RandomSellerWithInterns(list_sellers)
+    random_seller_with_interns = RandomSellerWithInterns(random_seller)
     random_seller_with_interns.next_seller()
