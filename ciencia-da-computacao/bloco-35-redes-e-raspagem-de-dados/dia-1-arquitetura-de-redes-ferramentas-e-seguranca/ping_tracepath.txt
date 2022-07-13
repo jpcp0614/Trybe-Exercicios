@@ -1,0 +1,23 @@
+➜  dia-1-arquitetura-de-redes-ferramentas-e-seguranca git:(exercicios/bloco35) ping google.com
+PING google.com(2800:3f0:4004:80b::200e (2800:3f0:4004:80b::200e)) 56 data bytes
+64 bytes from 2800:3f0:4004:80b::200e (2800:3f0:4004:80b::200e): icmp_seq=1 ttl=58 time=13.6 ms
+64 bytes from 2800:3f0:4004:80b::200e (2800:3f0:4004:80b::200e): icmp_seq=2 ttl=58 time=13.3 ms
+64 bytes from 2800:3f0:4004:80b::200e (2800:3f0:4004:80b::200e): icmp_seq=3 ttl=58 time=4.72 ms
+64 bytes from 2800:3f0:4004:80b::200e (2800:3f0:4004:80b::200e): icmp_seq=4 ttl=58 time=6.23 ms
+64 bytes from 2800:3f0:4004:80b::200e (2800:3f0:4004:80b::200e): icmp_seq=5 ttl=58 time=3.54 ms
+64 bytes from 2800:3f0:4004:80b::200e (2800:3f0:4004:80b::200e): icmp_seq=6 ttl=58 time=4.97 ms
+^C
+--- google.com ping statistics ---
+6 packets transmitted, 6 received, 0% packet loss, time 5000ms
+rtt min/avg/max/mdev = 3.542/7.721/13.585/4.115 ms
+➜  dia-1-arquitetura-de-redes-ferramentas-e-seguranca git:(exercicios/bloco35) tracepath google.com
+ 1?: [LOCALHOST]                        0.040ms pmtu 1500
+ 1:  2804:d41:a1e9:e00::1                                  0.674ms 
+ 1:  2804:d41:a1e9:e00::1                                  0.598ms 
+ 2:  2804:d40:0:4000::2                                    2.780ms 
+ 3:  no reply
+ 4:  2001:4860:1:1:0:1e3a:0:20                            12.243ms asymm  6 
+ 5:  no reply
+ 6:  no reply
+^C
+
