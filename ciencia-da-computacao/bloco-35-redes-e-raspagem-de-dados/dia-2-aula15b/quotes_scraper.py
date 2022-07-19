@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 from parsel import Selector
 import time
@@ -20,7 +21,12 @@ def parse_quotes_html(html_content: str) -> list[dict]:
         content = quote.css('span.text ::text').get()
         author = quote.css('span small.author ::text').get()
         tags = quote.css('div.tags a.tag ::text').getall()
-        quote_data = {"content": content, "author": author, "tags": tags}
+        quote_data = {
+          "content": content,
+          "author": author,
+          "tags": tags,
+          "scraped_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+          }
         result.append(quote_data)
     return result
 
