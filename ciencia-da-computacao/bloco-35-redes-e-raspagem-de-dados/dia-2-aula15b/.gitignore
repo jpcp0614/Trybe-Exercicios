@@ -1,0 +1,15 @@
+.ambient_dia_2_aula*
+node_modules
+.vscode
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+*.egg-info/
+.installed.cfg
+*.egg
