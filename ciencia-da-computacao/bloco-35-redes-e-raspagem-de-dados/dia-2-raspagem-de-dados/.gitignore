@@ -1,2 +1,17 @@
 .ambient_dia_2
+.ambient_dia_2_aula
 dia-2-raspagem-de-dados/__pycache__
+db/__pycache__
+aula15b/__pycache__
+.vscode
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+*.so
+
+*.egg-info/
+.installed.cfg
+*.egg

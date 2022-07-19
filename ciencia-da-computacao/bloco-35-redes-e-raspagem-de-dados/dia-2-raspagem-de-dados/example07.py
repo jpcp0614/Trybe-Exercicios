@@ -23,6 +23,12 @@ def descriptionBook(product):
     detail_selector = Selector(text=response.text)
     description = detail_selector.css(
       '#product_description ~ p::text').get()
+
+    suffix = '...more'
+
+    if description.endswith(suffix):
+        description = description[:-len(suffix)]
+
     return description
 
 
@@ -33,8 +39,8 @@ def selectAllBooksInPages(URL, NEXT_PAGE):
 
         for product in selector.css('.product_pod'):
             title = product.css('h3 a::attr(title)').get()
-            price = product.css('.price_color::text').get()
-            print(f'{title} - {price}')
+            price = product.css('.price_color::text').re(r"£\d+\.\d{2}")
+            print(f'{title} - {price[0]}')
 
             print(descriptionBook(product))
 
