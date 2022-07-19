@@ -3,6 +3,8 @@
   "python.linting.enabled": true,
   "cSpell.words": [
     "getall",
-    "parsel"
+    "mongodb",
+    "parsel",
+    "pymongo"
   ]
 }
