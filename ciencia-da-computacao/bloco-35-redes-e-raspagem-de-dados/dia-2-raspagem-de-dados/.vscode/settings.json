@@ -2,9 +2,11 @@
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
   "cSpell.words": [
+    "fastapi",
     "getall",
     "mongodb",
     "parsel",
-    "pymongo"
+    "pymongo",
+    "uvicorn"
   ]
 }
