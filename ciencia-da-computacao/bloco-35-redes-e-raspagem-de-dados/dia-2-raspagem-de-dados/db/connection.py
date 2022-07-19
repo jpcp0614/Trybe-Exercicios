@@ -11,7 +11,26 @@ client = MongoClient()
 db = client.catalogue
 
 # a coleção books será criada se não existir
-students = db.books
+catalogue = db.books
 
 # fecha a conexão com o db
+# client.close()
+
+# book = {
+#   "title": "A Light in the Attic"
+# }
+
+# document_id = db.books.insert_one(book).inserted_id
+
+documents = [
+  {
+    "title": "Tipping the Velvet",
+  },
+  {
+    "title": "Soumission",
+  },
+]
+
+db.books.insert_many(documents)
+
 client.close()
