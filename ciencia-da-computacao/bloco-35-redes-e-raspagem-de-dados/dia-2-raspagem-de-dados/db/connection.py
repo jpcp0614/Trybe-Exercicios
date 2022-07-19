@@ -5,10 +5,13 @@ from pymongo import MongoClient
 # podemos modificar, alterando a URI
 # client = MongoClient('mongodb://localhost:27017')
 
-client = MongoClient()
+def connection():
+    client = MongoClient()
+    return client
+
 
 # o banco será criado, caso não exista
-db = client.catalogue
+db = connection().catalogue
 
 # a coleção books será criada se não existir
 catalogue = db.books
@@ -33,4 +36,4 @@ documents = [
 
 db.books.insert_many(documents)
 
-client.close()
+connection().close()
