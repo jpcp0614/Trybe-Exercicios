@@ -9,11 +9,26 @@ Analise a ordem de complexidade de tempo e espaço
 '''
 
 
+# def check_sum(numbers, target):
+#     for index_1, num_1 in enumerate(numbers):
+#         for index_2, num_2 in enumerate(numbers):
+#             if (index_1 != index_2) and (num_1 + num_2) == target:
+#                 return True
+#     return False
+
+
 def check_sum(numbers, target):
-    for index_1, num_1 in enumerate(numbers):
-        for index_2, num_2 in enumerate(numbers):
-            if (index_1 != index_2) and (num_1 + num_2) == target:
-                return True
+    start = 0
+    end = len(numbers) - 1
+
+    while start < end:
+        sum = numbers[start] + numbers[end]
+        if sum == target:
+            return True
+        elif sum < target:
+            start += 1
+        else:
+            end -= 1
     return False
 
 
