@@ -1,3 +1,5 @@
+# Complexidade quadrática: O(n^2)
+
 def squared_array(numbers):
     squared_numbers = []
     for i in numbers:
