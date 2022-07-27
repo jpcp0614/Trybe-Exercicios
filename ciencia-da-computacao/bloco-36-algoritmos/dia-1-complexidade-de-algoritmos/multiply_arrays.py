@@ -1,3 +1,5 @@
+# Complexidade cúbica: O(n^3)
+
 def multiply_arrays(array1, array2):
     result = []
     number_of_iterations = 0
