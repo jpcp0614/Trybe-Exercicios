@@ -264,14 +264,14 @@ Este repositório contém todas as atividades de aprendizagem desenvolvidas por 
 ##### Bloco 35: Redes e Raspagem de Dados
 
 - [x] 35.1: _Arquitetura de redes, ferramentas e segurança_
-- [ ] 35.2: _Raspagem de Dados_
-- [ ] 35.3: _[Project - Tech News]()_
+- [x] 35.2: _Raspagem de Dados_
+- [x] 35.3: _[Project - Tech News]()_
 
 ##### Bloco 36: Algotitmos
 
-- [ ] 36.1: _Complexidade de Algoritmos_
-- [ ] 36.2: _Recursividade e Estratégias para solução de problemas_
-- [ ] 36.3: _Algoritmos de ordenação e busca_
+- [x] 36.1: _Complexidade de Algoritmos_
+- [x] 36.2: _Recursividade e Estratégias para solução de problemas_
+- [x] 36.3: _Algoritmos de ordenação e busca_
 - [ ] 36.4: _[Project - Algoritmos]()_
 
 ##### Bloco 37: Estrutura de Dados I: Arrays, Listas, Filas e Pilhas
