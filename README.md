@@ -272,7 +272,7 @@ Este repositório contém todas as atividades de aprendizagem desenvolvidas por 
 - [x] 36.1: _Complexidade de Algoritmos_
 - [x] 36.2: _Recursividade e Estratégias para solução de problemas_
 - [x] 36.3: _Algoritmos de ordenação e busca_
-- [ ] 36.4: _[Project - Algoritmos]()_
+- [x] 36.4: _[Project - Algoritmos]()_
 
 ##### Bloco 37: Estrutura de Dados I: Arrays, Listas, Filas e Pilhas
 
