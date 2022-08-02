@@ -22,6 +22,9 @@ class Array:
     def set(self, index, value):
         self.data.insert(index, value)
 
+    def remove(self, index):
+        self.data.pop(index)
+
 
 # vamos inicializar e preencher uma estrutura de dados array
 array = Array()
