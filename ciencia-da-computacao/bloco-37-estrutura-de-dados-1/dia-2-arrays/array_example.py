@@ -25,6 +25,9 @@ class Array:
     def remove(self, index):
         self.data.pop(index)
 
+    def update(self, index, value):
+        self.data[index] = value
+
 
 # vamos inicializar e preencher uma estrutura de dados array
 array = Array()
