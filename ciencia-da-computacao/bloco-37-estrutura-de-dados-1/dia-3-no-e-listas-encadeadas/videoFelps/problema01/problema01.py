@@ -5,7 +5,7 @@ segundo nó do meio.
 '''
 
 
-from linked_list import LinkedList
+from videoFelps.problema01.linked_list import LinkedList
 from rich import print
 
 
