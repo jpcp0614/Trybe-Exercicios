@@ -115,7 +115,9 @@ if __name__ == "__main__":
     print(linked_list)
 
     linked_list.insert_last(3)
-    # saída: LinkedList(len=3 value=Node(value=2 next=Node(value=1 next=Node(value=3 next=None))))
+    # saída: LinkedList(
+    # len=3 value=Node(
+    # value=2 next=Node(value=1 next=Node(value=3 next=None))))
     print(linked_list)
 
     linked_list.remove_last()
